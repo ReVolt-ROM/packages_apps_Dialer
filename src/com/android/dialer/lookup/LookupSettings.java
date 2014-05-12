@@ -49,41 +49,41 @@ public final class LookupSettings {
     }
 
     public static boolean isForwardLookupEnabled(Context context) {
-        return Settings.AOKP.getInt(context.getContentResolver(),
-                Settings.AOKP.ENABLE_FORWARD_LOOKUP, 1) != 0;
+        return Settings.REVOLT.getInt(context.getContentResolver(),
+                Settings.REVOLT.ENABLE_FORWARD_LOOKUP, 1) != 0;
     }
 
     public static boolean isPeopleLookupEnabled(Context context) {
-        return Settings.AOKP.getInt(context.getContentResolver(),
-                Settings.AOKP.ENABLE_PEOPLE_LOOKUP, 1) != 0;
+        return Settings.REVOLT.getInt(context.getContentResolver(),
+                Settings.REVOLT.ENABLE_PEOPLE_LOOKUP, 1) != 0;
     }
 
     public static boolean isReverseLookupEnabled(Context context) {
-        return Settings.AOKP.getInt(context.getContentResolver(),
-                Settings.AOKP.ENABLE_REVERSE_LOOKUP, 1) != 0;
+        return Settings.REVOLT.getInt(context.getContentResolver(),
+                Settings.REVOLT.ENABLE_REVERSE_LOOKUP, 1) != 0;
     }
 
     public static String getForwardLookupProvider(Context context) {
         String provider = getLookupProvider(context,
-                Settings.AOKP.FORWARD_LOOKUP_PROVIDER, FLP_DEFAULT);
+                Settings.REVOLT.FORWARD_LOOKUP_PROVIDER, FLP_DEFAULT);
 
         return provider;
     }
 
     public static String getPeopleLookupProvider(Context context) {
         String provider = getLookupProvider(context,
-                Settings.AOKP.PEOPLE_LOOKUP_PROVIDER, PLP_DEFAULT);
+                Settings.REVOLT.PEOPLE_LOOKUP_PROVIDER, PLP_DEFAULT);
 
         return provider;
     }
 
     public static String getReverseLookupProvider(Context context) {
         String provider = getLookupProvider(context,
-                Settings.AOKP.REVERSE_LOOKUP_PROVIDER, RLP_DEFAULT);
+                Settings.REVOLT.REVERSE_LOOKUP_PROVIDER, RLP_DEFAULT);
 
         if ("Google".equals(provider)) {
-            Settings.AOKP.putString(context.getContentResolver(),
-                    Settings.AOKP.REVERSE_LOOKUP_PROVIDER, RLP_DEFAULT);
+            Settings.REVOLT.putString(context.getContentResolver(),
+                    Settings.REVOLT.REVERSE_LOOKUP_PROVIDER, RLP_DEFAULT);
             provider = RLP_DEFAULT;
         }
 
@@ -93,10 +93,10 @@ public final class LookupSettings {
     private static String getLookupProvider(Context context,
             String key, String defaultValue) {
         ContentResolver cr = context.getContentResolver();
-        String provider = Settings.AOKP.getString(cr, key);
+        String provider = Settings.REVOLT.getString(cr, key);
 
         if (provider == null) {
-            Settings.AOKP.putString(cr, key, defaultValue);
+            Settings.REVOLT.putString(cr, key, defaultValue);
             return defaultValue;
         }
 
