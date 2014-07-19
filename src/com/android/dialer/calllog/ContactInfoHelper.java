@@ -299,8 +299,8 @@ public class ContactInfoHelper {
      * phone blacklist is enabled
      */
     public boolean canBlacklistCalls() {
-        return Settings.AOKP.getInt(mContext.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_ENABLED, 1) != 0;
+        return Settings.REVOLT.getInt(mContext.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_ENABLED, 1) != 0;
     }
 
     /**
